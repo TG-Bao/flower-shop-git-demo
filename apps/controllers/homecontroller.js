@@ -51,4 +51,13 @@ router.get("/", restrictAdmin, (req, res) => {
   });
 });
 
+router.get("/contact", (req, res) => {
+  res.render("admin/contact", {
+    title: "Liên hệ với chúng tôi",
+    email: "contact@flowershop.com",
+    phone: "0123-456-789",
+    address: "123 Đường Hoa, Quận 1, TP.HCM",
+    currentPage: "contact"
+  });
+});
 module.exports = router;
