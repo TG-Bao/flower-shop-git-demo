@@ -16,9 +16,6 @@ const { username, password } = req.body;
 // Ghi log nỗ lực đăng nhập vào hệ thống
 const logger = require('../utils/logger');
 logger.info(`Đăng nhập bởi user: ${username}`);
-
-
-const { username, password } = req.body;
 // Kiểm tra độ bảo mật mật khẩu
 if (password.length < 6) {
   return res.render("admin/authenticate/user", {
