@@ -4,6 +4,7 @@ const productModel = require("../model/productModel");
 
 // 1. User/Visitor Auth (Login)
 router.get("/login", (req, res) => {
+
   if (req.session.user) {
     return req.session.user.role === "admin"
       ? res.redirect("/admin")
@@ -11,6 +12,10 @@ router.get("/login", (req, res) => {
   }
   res.render("admin/authenticate/user", { currentPage: "login", error: null });
 });
+const { username, password } = req.body;
+// Ghi log nỗ lực đăng nhập vào hệ thống
+const logger = require('../utils/logger');
+logger.info(`Đăng nhập bởi user: ${username}`);
 
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
