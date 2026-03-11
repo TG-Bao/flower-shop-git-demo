@@ -21,6 +21,17 @@ app.use(helmet({
   hsts: { maxAge: 31536000, includeSubDomains: true }
 }));
 
+
+const compression = require('compression');
+app.use(compression({
+  level: 6,
+  threshold: 100 * 1024,
+  filter: (req, res) => {
+    if (req.headers['x-no-compression']) return false;
+    return compression.filter(req, res);
+  }
+}));
+
 // Session middleware
 app.use(
   session({
