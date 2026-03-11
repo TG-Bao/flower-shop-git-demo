@@ -17,6 +17,18 @@ const { username, password } = req.body;
 const logger = require('../utils/logger');
 logger.info(`Đăng nhập bởi user: ${username}`);
 
+
+const { username, password } = req.body;
+// Kiểm tra độ bảo mật mật khẩu
+if (password.length < 6) {
+  return res.render("admin/authenticate/user", {
+    error: "Mật khẩu phải có ít nhất 6 ký tự!",
+    currentPage: "login"
+  });
+}
+
+
+
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
   if (username === "user" && password === "user") {
