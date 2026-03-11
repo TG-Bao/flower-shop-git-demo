@@ -1,15 +1,13 @@
 <div class="header">
     <div class="logo"><a href="/"><img src="/images/logo.gif" alt="" border="0" /></a></div>
-    <div id="menu">
-      <ul>
-        <li class="<%= currentPage === 'home' ? 'selected' : '' %>"><a href="/">home</a></li>
-        <li><a href="#">about us</a></li>
-        <li class="<%= currentPage === 'flowers' ? 'selected' : '' %>"><a href="/flowers">flowers</a></li>
-        <% if (locals.user) { %>
-          <li><a href="/logout">logout (<%= user.username %>)</a></li>
-        <% } else { %>
-          <li class="<%= currentPage === 'login' ? 'selected' : '' %>"><a href="/login">my account</a></li>
-        <% } %>
-      </ul>
-    </div>
+    <div id="templatemo_menu_panel">
+    <ul>
+        <li><a href="/" class="<%= currentPage === 'home' ? 'current' : '' %>">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Templates</a></li>  
+        <li><a href="/about" class="<%= currentPage === 'about' ? 'current' : '' %>">About Us</a></li> 
+        <li><a href="/contact" class="<%= currentPage === 'contact' ? 'current' : '' %>">Contact Us</a></li>                     
+    </ul> 
+</div> <!-- end of menu -->
 </div>

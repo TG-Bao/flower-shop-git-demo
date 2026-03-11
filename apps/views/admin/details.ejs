@@ -5,33 +5,36 @@
 <%- include('../partical/head') %>
 </head>
 <body>
-<div id="wrap">
-  <%- include('../partical/menu', { currentPage: 'details' }) %>
-  <div class="center_content">
-    <div class="left_content">
-      <div class="crumb_nav"> <a href="/">home</a> &gt;&gt; <%= product.name %> </div>
-      <div class="title"><span class="title_icon"><img src="/images/bullet1.gif" alt="" /></span><%= product.name %></div>
-      <div class="feat_prod_box_details">
-        <div class="prod_img"><a href="/<%= product.image %>" rel="lightbox"><img src="/<%= product.image %>" alt="" border="0" width="131" height="129" /></a> <br />
-          <br />
-          <a href="/images/big_pic.jpg" rel="lightbox"><img src="/images/zoom.gif" alt="" border="0" /></a> </div>
-        <div class="prod_det_box">
-          <div class="box_top"></div>
-          <div class="box_center">
-            <div class="prod_title">Details</div>
-            <p class="details"><%= product.description %></p>
-            <div class="price"><strong>PRICE:</strong> <span class="red">$<%= product.price %></span></div>
-            <a href="#" class="more"><img src="/images/order_now.gif" alt="" border="0" /></a>
-            <div class="clear"></div>
-          </div>
-          <div class="box_bottom"></div>
-        </div>
-        <div class="clear"></div>
-      </div>
+<div id="templatemo_container">
+    <div id="templatemo_header">
+        <img src="/images/templatemo_site_header.jpg" alt="Flower Shop" />
     </div>
-    <div class="clear"></div>
-  </div>
-  <%- include('../partical/footer') %>
+    
+    <%- include('../partical/menu', { currentPage: 'details' }) %>
+    
+    <div id="templatemo_content">
+        <div id="templatemo_content_left">
+            <h1><%= product.name %></h1>
+            <div class="product_box">
+                <img src="/<%= product.image %>" alt="<%= product.name %>" width="200" />
+            </div>
+            <div class="product_details">
+                <p><strong>Description:</strong> <%= product.description %></p>
+                <div class="price">PRICE:<span>$<%= product.price %>.00</span></div>
+                <div class="buynow"><a href="#">Order Now</a></div>
+            </div>
+        </div>
+        <div id="templatemo_content_right">
+            <div class="templatemo_right_section">
+                <h4>Back to Shop</h4>
+                <div class="templatemo_right_section_content">
+                    <a href="/">&lt;&lt; Go Back</a>
+                </div>
+            </div>
+        </div>
+        <div class="cleaner">&nbsp;</div>
+    </div>
+    <%- include('../partical/footer') %>
 </div>
 </body>
 </html>

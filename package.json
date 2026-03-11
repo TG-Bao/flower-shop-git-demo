@@ -2,8 +2,10 @@
   "name": "btnpt",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,8 +14,10 @@
   "type": "commonjs",
   "dependencies": {
     "body-parser": "^2.2.2",
+    "compression": "^1.8.1",
     "ejs": "^5.0.1",
     "express": "^5.2.1",
-    "express-session": "^1.19.0"
+    "express-session": "^1.19.0",
+    "helmet": "^8.1.0"
   }
 }

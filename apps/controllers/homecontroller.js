@@ -4,7 +4,6 @@ const productModel = require("../model/productModel");
 
 // 1. User/Visitor Auth (Login)
 router.get("/login", (req, res) => {
-
   if (req.session.user) {
     return req.session.user.role === "admin"
       ? res.redirect("/admin")
@@ -12,22 +11,21 @@ router.get("/login", (req, res) => {
   }
   res.render("admin/authenticate/user", { currentPage: "login", error: null });
 });
-const { username, password } = req.body;
-// Ghi log nỗ lực đăng nhập vào hệ thống
-const logger = require('../utils/logger');
-logger.info(`Đăng nhập bởi user: ${username}`);
-// Kiểm tra độ bảo mật mật khẩu
-if (password.length < 6) {
-  return res.render("admin/authenticate/user", {
-    error: "Mật khẩu phải có ít nhất 6 ký tự!",
-    currentPage: "login"
-  });
-}
-
-
-
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
+
+  // Ghi log nỗ lực đăng nhập vào hệ thống
+  const logger = require("../utils/logger");
+  logger.info(`Đăng nhập bởi user: ${username}`);
+
+  // Kiểm tra độ bảo mật mật khẩu
+  if (password.length < 6) {
+    return res.render("admin/authenticate/user", {
+      error: "Mật khẩu phải có ít nhất 6 ký tự!",
+      currentPage: "login",
+    });
+  }
+
   if (username === "user" && password === "user") {
     req.session.user = { role: "user", username: "user" };
     res.redirect("/");
@@ -71,7 +69,7 @@ router.get("/contact", (req, res) => {
     email: "contact@flowershop.com",
     phone: "0123-456-789",
     address: "123 Đường Hoa, Quận 1, TP.HCM",
-    currentPage: "contact"
+    currentPage: "contact",
   });
 });
 module.exports = router;
