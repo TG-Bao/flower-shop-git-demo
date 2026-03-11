@@ -1,0 +1,15 @@
+<div class="header">
+    <div class="logo"><a href="/"><img src="/images/logo.gif" alt="" border="0" /></a></div>
+    <div id="menu">
+      <ul>
+        <li class="<%= currentPage === 'home' ? 'selected' : '' %>"><a href="/">home</a></li>
+        <li><a href="#">about us</a></li>
+        <li class="<%= currentPage === 'flowers' ? 'selected' : '' %>"><a href="/flowers">flowers</a></li>
+        <% if (locals.user) { %>
+          <li><a href="/logout">logout (<%= user.username %>)</a></li>
+        <% } else { %>
+          <li class="<%= currentPage === 'login' ? 'selected' : '' %>"><a href="/login">my account</a></li>
+        <% } %>
+      </ul>
+    </div>
+</div>
