@@ -11,8 +11,15 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 
 // Body Parser middleware
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+const helmet = require('helmet');
+app.use(helmet({
+  contentSecurityPolicy: false,
+  frameguard: { action: 'deny' },
+  hsts: { maxAge: 31536000, includeSubDomains: true }
+}));
 
 
 const compression = require('compression');
