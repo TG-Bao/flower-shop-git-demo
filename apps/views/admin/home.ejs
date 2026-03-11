@@ -1,58 +1,85 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>BTNPT - Home</title>
+<title>Flower Shop - Home</title>
 <%- include('../partical/head') %>
 </head>
 <body>
-<div id="wrap">
-  <%- include('../partical/menu', { currentPage: 'home' }) %>
-  <div class="center_content">
-    <div class="left_content">
-      <div class="title"><span class="title_icon"><img src="/images/bullet1.gif" alt="" /></span>Featured products</div>
-      
-      <% products.forEach(product => { %>
-      <div class="feat_prod_box">
-        <div class="prod_img"><a href="/details/<%= product.id %>"><img src="/<%= product.image %>" alt="" border="0" width="94" height="92" /></a></div>
-        <div class="prod_det_box">
-          <div class="box_top"></div>
-          <div class="box_center">
-            <div class="prod_title"><%= product.name %></div>
-            <p class="details"><%= product.description %> - ONLY <b>$<%= product.price %></b></p>
-            <a href="/details/<%= product.id %>" class="more">- more details -</a>
-            <div class="clear"></div>
-          </div>
-          <div class="box_bottom"></div>
+<div id="templatemo_container">
+    <div id="templatemo_top_panel">
+        <div id="templatemo_language_section">
+            <a href="#"><img src="/images/templatemo_flag_01.gif" alt="flag 1" /></a>
+            <a href="#"><img src="/images/templatemo_flag_02.gif" alt="flag 2" /></a>
+            <a href="#"><img src="/images/templatemo_flag_03.gif" alt="flag 3" /></a>
+            <a href="#"><img src="/images/templatemo_flag_04.gif" alt="flag 4" /></a>
+            <a href="#"><img src="/images/templatemo_flag_05.gif" alt="flag 5" /></a>
         </div>
-        <div class="clear"></div>
-      </div>
-      <% }) %>
-
-      <div class="title"><span class="title_icon"><img src="/images/bullet2.gif" alt="" /></span>New products</div>
-      <div class="new_products">
-          <% products.slice(0, 3).forEach(product => { %>
-            <div class="new_prod_box"> <a href="/details/<%= product.id %>"><%= product.name %></a>
-              <div class="new_prod_bg"> <span class="new_icon"><img src="/images/new_icon.gif" alt="" /></span> <a href="/details/<%= product.id %>"><img src="/<%= product.image %>" class="thumb" border="0" width="60" height="60" /></a> </div>
+        <div id="templatemo_shopping_cart">
+            Shopping Cart <span>(<a href="#">0 items</a>)</span>      
+        </div>
+    </div>
+     
+    <div id="templatemo_header">
+        <img src="/images/templatemo_site_header.jpg" alt="Flower Shop" />
+    </div>
+     
+    <div id="templatemo_banner">
+        <a href="#"><img src="/images/templatemo_banner_image.jpg" alt="Flower Shop - Free Web Template" title="Flower Shop - Free Web Template" border="0" /></a>
+    </div>
+     
+    <%- include('../partical/menu', { currentPage: 'home' }) %>
+    
+    <div id="templatemo_content">
+    
+        <div id="templatemo_content_left">
+            <h1>Welcome to Our Flower Site</h1>
+            <p>This is a modern flower shop template. You can browse our collection of beautiful flowers and order them online.</p>
+            
+            <div class="cleaner_with_height">&nbsp;</div>
+             
+            <h2>New Products</h2>
+            <% products.forEach(product => { %>
+            <div class="product_box">
+                <h3><%= product.name %></h3>
+                <img src="/<%= product.image %>" alt="<%= product.name %>" width="100" />
+                <p><%= product.description %></p>
+                <div class="price">PRICE:<span>$<%= product.price %>.00</span></div>                           
+                <div class="buynow"><a href="/details/<%= product.id %>">Buy Now</a></div><a href="/details/<%= product.id %>">Details</a>
             </div>
-          <% }) %>
-      </div>
-      <div class="clear"></div>
+            <% }) %>
+            
+            <div class="cleaner_with_height">&nbsp;</div>
+        </div> <!-- end of content left -->
+        
+        <div id="templatemo_content_right">
+            <div class="templatemo_right_section">
+                <h4>Search</h4>
+                <div class="templatemo_right_section_content">
+                    <form method="get" action="#">
+                        <input name="keyword" type="text" id="keyword"/>
+                        <input type="submit" name="submit" class="button" value="Search" />
+                    </form>
+                </div>
+            </div>
+            
+            <div class="templatemo_right_section">
+                <h4>Categories</h4>
+                <div class="templatemo_right_section_content">
+                    <ul>
+                        <li><a href="#">Artificial and Silk</a></li>
+                        <li><a href="#">Dried and Preserved</a></li>
+                        <li><a href="#">Floral</a></li>
+                        <li><a href="#">Fresh Cut</a></li>
+                        <li><a href="#">Gardens</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div> <!-- end of content right-->
+        
+        <div class="cleaner">&nbsp;</div>
     </div>
-    <div class="right_content">
-      <div class="languages_box"> <span class="red">Languages:</span> <a href="#" class="selected"><img src="/images/gb.gif" alt="" border="0" /></a> <a href="#"><img src="/images/fr.gif" alt="" border="0" /></a> <a href="#"><img src="/images/de.gif" alt="" border="0" /></a> </div>
-      <div class="currency"> <span class="red">Currency: </span> <a href="#">GBP</a> <a href="#">EUR</a> <a href="#" class="selected">USD</a> </div>
-      <div class="cart">
-        <div class="title"><span class="title_icon"><img src="/images/cart.gif" alt="" /></span>My cart</div>
-        <div class="home_cart_content"> 0 x items | <span class="red">TOTAL: 0$</span> </div>
-        <a href="#" class="view_cart">view cart</a> </div>
-      <div class="title"><span class="title_icon"><img src="/images/bullet3.gif" alt="" /></span>About Our Shop</div>
-      <div class="about">
-        <p> <img src="/images/about.gif" alt="" class="right" /> Flower Shop brings flowers from around the world to your doorstep. </p>
-      </div>
-    </div>
-    <div class="clear"></div>
-  </div>
-  <%- include('../partical/footer') %>
+    
+    <%- include('../partical/footer') %>
 </div>
 </body>
 </html>

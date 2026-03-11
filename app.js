@@ -11,8 +11,26 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 
 // Body Parser middleware
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+const helmet = require('helmet');
+app.use(helmet({
+  contentSecurityPolicy: false,
+  frameguard: { action: 'deny' },
+  hsts: { maxAge: 31536000, includeSubDomains: true }
+}));
+
+
+const compression = require('compression');
+app.use(compression({
+  level: 6,
+  threshold: 100 * 1024,
+  filter: (req, res) => {
+    if (req.headers['x-no-compression']) return false;
+    return compression.filter(req, res);
+  }
+}));
 
 // Session middleware
 app.use(
