@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary: #52796f; /* Sage Green */
+  --secondary: #84a59d;
+  --accent: #f28482; /* Muted Rose */
+  --gold: #d4a373;
+  --bg-light: #faf9f6; /* Off-white/Cream */
+  --sidebar-bg: #2f3e46; /* Deep Moss */
+  --text-dark: #354f52;
+  --text-muted: #6b705c;
+  --shadow-soft: 0 10px 40px rgba(53, 79, 82, 0.08);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* --- Sidebar Organic Design --- */
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  z-index: 100;
+  color: white;
+}
+
+.sidebar-header {
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.sidebar-header img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 15px;
+  background: white;
+  object-fit: cover;
+}
+
+.sidebar-header span {
+  font-family: "Playfair Display", serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  display: block;
+}
+
+.nav-menu {
+  flex: 1;
+  padding: 10px 20px;
+  list-style: none;
+  margin: 0;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 20px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-bottom: 5px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: var(--primary);
+  color: white;
+  padding-left: 25px;
+}
+
+.nav-link i {
+  font-size: 1.2rem;
+}
+
+.sidebar-footer {
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.admin-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.avatar-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* --- Main Layout --- */
+.main-content {
+  margin-left: 280px;
+  flex: 1;
+  padding: 50px 60px;
+}
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.welcome-text h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  margin: 0;
+  color: var(--text-dark);
+}
+
+.welcome-text p {
+  color: var(--secondary);
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+/* --- Floral Components --- */
+.glass-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle floral accent in card bg */
+.glass-card::before {
+  content: "✿";
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  font-size: 15rem;
+  color: rgba(132, 165, 157, 0.03);
+  pointer-events: none;
+}
+
+.btn-modern {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(82, 121, 111, 0.2);
+}
+
+.btn-modern:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(82, 121, 111, 0.3);
+  background: var(--text-dark);
+}
+
+.modern-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+.modern-table th {
+  text-align: left;
+  padding: 0 25px;
+  color: var(--secondary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.modern-table td {
+  padding: 20px 25px;
+  background: white;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.modern-table td:first-child {
+  border-left: 1px solid #f0f0f0;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+.modern-table td:last-child {
+  border-right: 1px solid #f0f0f0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.product-row {
+  transition: all 0.3s ease;
+}
+
+.product-row:hover {
+  transform: translateX(10px);
+}
+
+.product-row:hover td {
+  background: #fdfdfd;
+  border-color: var(--secondary);
+}
+
+.img-container {
+  width: 65px;
+  height: 65px;
+  border-radius: 18px;
+  padding: 4px;
+  background: #f8f8f8;
+  border: 1px dashed var(--secondary);
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.price-tag {
+  font-weight: 800;
+  color: var(--text-dark);
+  font-size: 1.1rem;
+}
+
+.status-badge {
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-online {
+  background: #e9f5f2;
+  color: var(--primary);
+}
+
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-edit {
+  background: #f0f3f2;
+  color: var(--primary);
+}
+.btn-delete {
+  background: #fff1f0;
+  color: #e5989b;
+}
+
+.icon-btn:hover {
+  transform: rotate(8deg) scale(1.1);
+}
+
+/* --- Form Sculpting --- */
+.classic-form-group label {
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.modern-input {
+  width: 100%;
+  padding: 16px 24px;
+  background: #fcfcfc;
+  border: 2px solid #eee;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  color: var(--text-dark);
+}
+
+.modern-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 10px 20px rgba(82, 121, 111, 0.1);
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Flower Shop - Login</title>
+<%- include('../../partical/head') %>
+</head>
+<body>
+<div id="wrap">
+  <%- include('../../partical/menu', { currentPage: 'login' }) %>
+    <div class="center_content">
+      <div class="center_title">Account Login</div>
+      <% if (locals.error) { %>
+        <p style="color: red; margin: 10px 0;"><%= error %></p>
+      <% } %>
+      <div class="login_form">
+        <form action="/login" method="POST">
+          <div class="form_row">
+            <label class="contact"><strong>Username:</strong></label>
+            <input type="text" name="username" class="contact_input" required />
+          </div>
+          <div class="form_row">
+            <label class="contact"><strong>Password:</strong></label>
+            <input type="password" name="password" class="contact_input" required />
+          </div>
+          <div class="form_row">
+            <input type="submit" class="register" value="login" />
+          </div>
+        </form>
+      </div>
+    </div>
+  <%- include('../../partical/footer') %>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Flower Shop - Category</title>
+<%- include('./partical/head') %>
+</head>
+<body>
+<div id="wrap">
+  <%- include('./partical/menu', { currentPage: 'flowers' }) %>
+  <div class="center_content">
+    <div class="left_content">
+      <div class="title"><span class="title_icon"><img src="/images/bullet1.gif" alt="" /></span>Category Products</div>
+      
+      <div class="new_products">
+          <% products.forEach(product => { %>
+            <div class="new_prod_box"> <a href="/details/<%= product.id %>"><%= product.name %></a>
+              <div class="new_prod_bg"> <span class="new_icon"><img src="/images/new_icon.gif" alt="" /></span> <a href="/details/<%= product.id %>"><img src="/<%= product.image %>" class="thumb" border="0" width="60" height="60" /></a> </div>
+            </div>
+          <% }) %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="right_content">
+      <div class="languages_box"> <span class="red">Languages:</span> <a href="#" class="selected"><img src="/images/gb.gif" alt="" border="0" /></a> <a href="#"><img src="/images/fr.gif" alt="" border="0" /></a> <a href="#"><img src="/images/de.gif" alt="" border="0" /></a> </div>
+      <div class="currency"> <span class="red">Currency: </span> <a href="#" class="selected">USD</a> </div>
+      <div class="cart">
+        <div class="title"><span class="title_icon"><img src="/images/cart.gif" alt="" /></span>My cart</div>
+        <div class="home_cart_content"> 0 x items | <span class="red">TOTAL: 0$</span> </div>
+        <a href="#" class="view_cart">view cart</a> </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <%- include('./partical/footer') %>
+</div>
+</body>
+</html>
